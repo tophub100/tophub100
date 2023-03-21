@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        页面没找到 -         淑穆玄真            </title>
+    <link rel="icon" href="http://homeway.me/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://homeway.me/usr/themes/MWordStar/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="http://homeway.me/usr/themes/MWordStar/assets/css/icon.css" type="text/css">
+    <link rel="stylesheet" href="http://homeway.me/usr/themes/MWordStar/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="http://homeway.me/usr/themes/MWordStar/assets/css/vs2015.css" type="text/css">
+    <script type="text/javascript" src="http://homeway.me/usr/themes/MWordStar/assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="http://homeway.me/usr/themes/MWordStar/assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="http://homeway.me/usr/themes/MWordStar/assets/js/highlight.pack.js"></script>
+    <script type="text/javascript" src="http://homeway.me/usr/themes/MWordStar/assets/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="http://homeway.me/usr/themes/MWordStar/assets/js/app.js"></script>
+            <meta name="description" content="淑穆玄真" />
+<meta name="keywords" content="homeway,php,blog" />
+<meta name="generator" content="Typecho 1.1/17.10.30" />
+<meta name="template" content="MWordStar" />
+<link rel="pingback" href="http://homeway.me/action/xmlrpc" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://homeway.me/action/xmlrpc?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://homeway.me/action/xmlrpc?wlw" />
+<link rel="alternate" type="application/rss+xml" title="页面没找到 &raquo; 淑穆玄真 &raquo; RSS 2.0" href="http://homeway.me/feed/" />
+<link rel="alternate" type="application/rdf+xml" title="页面没找到 &raquo; 淑穆玄真 &raquo; RSS 1.0" href="http://homeway.me/feed/rss/" />
+<link rel="alternate" type="application/atom+xml" title="页面没找到 &raquo; 淑穆玄真 &raquo; ATOM 1.0" href="http://homeway.me/feed/atom/" />
+            </head>
+<body data-rounded="">
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="http://homeway.me/" title="淑穆玄真 首页">淑穆玄真</a>
+            <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="导航菜单">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link"  href="http://homeway.me/">首页</a>
+                    </li>
+                                                                                    <li class="nav-item ">
+                            <a class="nav-link" href="http://homeway.me/start-page.html">关于</a>
+                        </li>
+                                    </ul>
+                                    <form class="form-inline search-form" action="http://homeway.me/" method="post" role="search">
+                        <div class="input-group">
+                            <input data-url="http://homeway.me/" class="border-right-0 form-control form-control-md search-input " type="text" placeholder="搜索" aria-label="搜索" required="required" name="s">
+                            <div class="input-group-append">
+                                <button class="btn my-sm-0 search-btn-light " type="submit" aria-label="搜索" title="搜索" data-toggle="tooltip" data-placement="bottom">
+                                    <i class="icon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                            </div>
+        </div>
+    </nav>
+</header>
+<div class="container container-404 main-content">
+    <h1>404</h1>
+    <h2 role="alert">您访问的页面不存在！</h2>
+    <h5>您还是再找找吧！</h5>
+    <div class="search-box row">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 offset-lg-3 offset-md-2 offset-sm-1">
+            <form action="http://homeway.me/" method="post">
+                <div class="input-group">
+                    <input type="search" class="form-control form-control-md " placeholder="搜索" aria-label="搜索" aria-describedby="button-addon2" required="required" name="s">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-md btn-secondary " aria-label="搜索" title="搜索" data-toggle="tooltip" data-placement="top">
+                            <span class="icon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="http://homeway.me/" class="btn btn-secondary ">回到首页</a>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        		<span><a target="_blank" href="https://beian.miit.gov.cn/">浙ICP备14012013号-2<a></span>
+        <!--<span>Powered by <a href="http://www.typecho.org/" target="_blank">Typecho</a> Theme by <a href="https://github.com/changbin1997/MWordStar" target="_blank">MWordStar</a></span>-->
+    </div>
+</footer>
+    <button type="button" class="btn to-top rounded-circle d-none text-secondary" title="返回顶部" aria-label="返回顶部">
+        <i class="icon-arrow-up"></i>
+    </button>
+
+<!--统计数据的图表js-->
+
+</body>
+</html>
