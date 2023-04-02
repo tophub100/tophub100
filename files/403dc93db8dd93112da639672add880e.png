@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="文件检测 信息 值 文件名 1.virus 文件类型 WIN 32 EXE 文件大小 41664 bytes MD5 3d466b0f8ba9f3fe03e137a34d79f682 SHA-256 " />
+    <meta property="og:description" content="文件检测 信息 值 文件名 1.virus 文件类型 WIN 32 EXE 文件大小 41664 bytes MD5 3d466b0f8ba9f3fe03e137a34d79f682 SHA-256 " />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mydoom样本分析报告 - Hk_Mayfly - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=MynSBPsTXNkDVLGPQR89Q2oVwJD1SYW2wiVnCO3DuWg" />
+    
+    <link type="text/css" rel="stylesheet" href="/css/hljs/cnblogs.css?v=2spjdq1Snjw5rAm9auWVRax8Gb7nftS4ORu-8fQ7JGM" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/Mayfly-nymph/custom.css?v=0S4chkfzNha4eM2cE2t3f9bUO&#x2B;c=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/custom/bundle-custom-mobile.min.css?v=2VbkWg7qVDEmVox7Xye5yhnLuJ-l_3cc3gD-3KdbOgk" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/Mayfly-nymph/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/Mayfly-nymph/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/Mayfly-nymph/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 404562;
+        var currentBlogApp = 'Mayfly-nymph';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'Custom';
+        var visitorUserId = '';
+        var hasCustomScript = true;
+        try {
+            if (hasCustomScript && document.referrer && document.referrer.indexOf('baidu.com') >= 0) {
+                Object.defineProperty(document, 'referrer', { value: '' });
+                Object.defineProperty(Document.prototype, 'referrer', { get: function(){ return ''; } });
+            }
+        } catch(error) { }
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-10-17 04:14';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=V-zVMSdi6fYxja7HtOp6qIiJd_zqHctHxlOKSi6Vq4c"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+    <script type="text/javascript">
+        window.codeHighlightEngine = 1
+        window.enableCodeLineNumber = false
+    </script>
+</head>
+<body class="skin-custom has-navbar">
+    <a name="top"></a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <div id="loading"><div class="loader-inner"></div></div>
+
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/Mayfly-nymph/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/Mayfly-nymph/">Hk_Mayfly</a>
+</h1>
+<h2>凡心所向，素履以往。生如逆旅，一苇以航。</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/Mayfly-nymph/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Hk_Mayfly">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/Mayfly-nymph/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Mayfly-nymph/p/15417180.html">
+    <span>Mydoom样本分析报告</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="文件检测">文件检测</h1>
+<p><img src="https://pic.imgdb.cn/item/6148b1fe2ab3f51d91ac1110.png" alt="" loading="lazy"></p>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件名</td>
+<td>1.virus</td>
+</tr>
+<tr>
+<td>文件类型</td>
+<td>WIN 32 EXE</td>
+</tr>
+<tr>
+<td>文件大小</td>
+<td>41664 bytes</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>3d466b0f8ba9f3fe03e137a34d79f682</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>7c4d73c8c9e394a72cc0eeda7e3ce78340a23f40cb3f682c06715e948c09feca</td>
+</tr>
+<tr>
+<td>加壳</td>
+<td>upx 2.90</td>
+</tr>
+</tbody>
+</table>
+<h2 id="导入函数">导入函数</h2>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe364.png" alt="3" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe32b.png" alt="2" loading="lazy"></p>
+<p>通过导入表函数可以看出病毒有以下行为：</p>
+<ul>
+<li>文件创建</li>
+<li>线程注入</li>
+<li>注册表修改</li>
+<li>网络行为</li>
+</ul>
+<h1 id="动态行为分析">动态行为分析</h1>
+<p>regshot创建注册表快照，同时监控程序进程，使用wireshark实时监控网络行为</p>
+<h2 id="注册表">注册表</h2>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe39e.png" alt="4" loading="lazy"></p>
+<pre><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG]
+"Seed"=hex:f4,9d,30,f1,c6,bc,ea,49,17,69,71,10,29,fe,0c,34,1a,7c,76,bd,cf,ab,\
+  d9,02,17,5e,1e,43,3e,12,f7,8d,1e,0a,36,d9,4a,82,b7,5e,cb,b1,08,ea,a1,31,1c,\
+  86,dd,21,54,de,53,28,41,a5,d8,ee,79,3d,f4,9c,62,7f,63,b4,64,ac,25,07,ba,76,\
+  18,10,f4,aa,c9,89,87,61
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Daemon]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"JavaVM"="C:\\WINDOWS\\java.exe"
+"Services"="C:\\WINDOWS\\services.exe"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Daemon]
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.vir]
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.vir\OpenWithList]
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections]
+"SavedLegacySettings"=hex:3c,00,00,00,5b,01,00,00,01,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,19,00,00,00,68,74,74,70,3a,2f,2f,31,32,37,\
+  2e,30,2e,30,2e,31,2f,77,70,61,64,2e,64,61,74,f0,b0,88,2c,93,41,d3,01,01,00,\
+  00,00,c0,a8,f4,83,00,00,00,00,00,00,00,00
+</code></pre>
+<ol>
+<li>创建servers.exe和java.exe</li>
+<li><code>C:\\WINDOWS\\java.exe</code>和<code>C:\\WINDOWS\\services.exe</code>设置为自启动</li>
+<li>设置<code>http://127.0.0.1/wpad.dat</code>为代理服务器，HTTP会话劫持</li>
+</ol>
+<blockquote>
+<p>备注：</p>
+<p>随机种子：[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\RNG]</p>
+</blockquote>
+<h2 id="进程行为">进程行为</h2>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe3eb.png" alt="" loading="lazy"><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe513.png" alt="8" loading="lazy"><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe44f.png" alt="6" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe48c.png" alt="7" loading="lazy"></p>
+<ol>
+<li>临时路径下创建services.exe和java.exe使用,<code>"C:\Users\HK_MAY~1\AppData\Local\Temp\services.exe"</code></li>
+<li>主程序与services.exe进行通讯（services.exe-&gt;主程序-&gt;网络）</li>
+<li>services.exe设置浏览器代理</li>
+</ol>
+<h2 id="网络行为">网络行为</h2>
+<p>既然有浏览器和邮件的相关恶意行为，那么主要看HTTP，HTTPS，SMTP，DNS协议</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe557.png" alt="9" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe5de.png" alt="11" loading="lazy"><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe578.png" alt="10" loading="lazy"></p>
+<ol>
+<li>通过浏览器查询信息</li>
+<li>发送邮件，信息如第三张图</li>
+</ol>
+<p>通过上面动态分析，总结和推测如下</p>
+<ol>
+<li>释放文件services.exe和java.exe</li>
+<li>修改注册表，设置随机数种子、开启自启程序、HTTP代理</li>
+<li>services.exe通过劫持会话，作为本地主程序与网络的中间服务器，发送邮件信息到网络，接受网络数据到主程序</li>
+</ol>
+<h1 id="静态分析">静态分析</h1>
+<h2 id="主程序分析">主程序分析</h2>
+<h3 id="全局分析">全局分析</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac11e2.png" alt="23" loading="lazy"></p>
+<h2 id="创建互斥体">创建互斥体</h2>
+<p>主机+root，将非字母替换为大写字母，以此命名互斥体，确保一个病毒运行</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe641.png" alt="14" loading="lazy"></p>
+<h2 id="释放文件">释放文件</h2>
+<p>1.在系统临时目录创建zincite.log<br>
+C:\Users\10245\AppData\Local\Temp\zincite.log<br>
+2.释放services.exe，并运行</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe668.png" alt="15" loading="lazy"></p>
+<p>servers.exe元数据</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe682.png" alt="16" loading="lazy"></p>
+<p>创建java.exe</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe693.png" alt="17" loading="lazy"></p>
+<h2 id="设置自启项">设置自启项</h2>
+<p>将C:\Windows\java.exe写入注册表自启动HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe693.png" alt="18" loading="lazy"></p>
+<p>创建线程关闭rctrl_renwnd32,ATH_Note,IEFrame窗口</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1f52ab3f51d91abe2bb.png" alt="19" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1175.png" alt="20" loading="lazy"></p>
+<p>创建线程,从浏览器获取并筛选邮箱地址，构建欺骗邮件信息</p>
+<p>首先判断了网络状态</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1198.png" alt="21" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac11c8.png" alt="22" loading="lazy"></p>
+<p>首先进入通过搜索引擎获取同类型邮箱地址</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac11ee.png" alt="24" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac11fc.png" alt="25" loading="lazy"></p>
+<h2 id="构造搜索链接">构造搜索链接</h2>
+<h3 id="构造参数">构造参数</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1230.png" alt="26" loading="lazy"></p>
+<p>参数1包括：</p>
+<pre><code>contact+mail
+contack+email
+contact+e-mail
+reply
+mailto
+</code></pre>
+<p>通过<code>@后的域名+参数1</code>或<code>参数1+@后的域名</code>构建最终的参数</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1244.png" alt="27" loading="lazy"></p>
+<p>搜索链接形式包括</p>
+<pre><code>http://www.altavista.com/web/results?q=%s&amp;kgs=0&amp;kls=0&amp;nbq=%d
+http://www.altavista.com/web/results?q=%s&amp;kgs=0&amp;kls=0
+http://search.yahoo.com/search?p=%s&amp;ei=UTF-8&amp;fr=fp-tab-web-t&amp;cop=mss&amp;tab=&amp;n=%d
+http://www.google.com/search?hl=en&amp;ie=UTF-8&amp;oe=UTF-8&amp;q=&amp;num=%d
+</code></pre>
+<p>前一个参数为之前构造的字符串，后一个表示搜索数量20/50随机</p>
+<h2 id="筛选域名与用户信息">筛选域名与用户信息</h2>
+<h3 id="筛选域名信息">筛选域名信息</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1273.png" alt="30" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac12ac.png" alt="31" loading="lazy"></p>
+<p>嵌套循环，外层获取到的域名字符串，内层指定域名字符串，只要获取到的域名中包含了其中指定的字符串，就会排除。</p>
+<pre><code>avp,syma,sarc.,microsoft,msdn,msn.,hotmail,panda,spersk,yahoo,sophos,example,domain,uslis,update,trend,foo.com,bar.,secur,seclist,gmail,gnu.,google,arin.,ripe.,sourcedorge,sf.net,rarsoft,winzip,winrar
+</code></pre>
+<h3 id="用户信息排除">用户信息排除</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac12ca.png" alt="32" loading="lazy"></p>
+<p>全字符匹配</p>
+<pre><code>info
+noone
+nobody
+nothing
+anyone
+someone
+your
+you
+me
+rating
+site
+soft
+no
+foo
+help
+not
+feste
+ca
+gold-certs
+the.bat
+page
+</code></pre>
+<p>子串匹配</p>
+<pre><code>admin
+support
+ntivi
+submit
+listserv
+bugs
+secur
+privacycertific
+accoun
+sample
+master
+abuse
+spam
+mailer-d
+</code></pre>
+<h2 id="构建欺骗邮件与附件">构建欺骗邮件与附件</h2>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac12d6.png" alt="33" loading="lazy"></p>
+<h3 id="构建欺骗邮件信息">构建欺骗邮件信息</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac12e2.png" alt="34" loading="lazy"></p>
+<h3 id="发件人信息构造方式">发件人信息构造方式</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac12f4.png" alt="35" loading="lazy"></p>
+<pre><code class="language-python">tb1 = ["Mail Delivery Subsystem","MAILER-DAEMON","Returned mail","Bounced mail","The Post Office","Post Office","Automatic Email Delivery Software","Mail Administrator","Postmaster"]
+
+tb2 = ["MAILER-DAEMON","noreply","postmaster"]
+</code></pre>
+<p>这两个列表随机组合，最终组合形式<code>tb1</code>+<code>&lt;</code>+<code>tb2</code>+<code>@</code>+<code>域名</code>+<code>&gt;</code>，例如<code>The Post Office&lt;noreply@qq.com&gt;</code></p>
+<h3 id="邮件主题">邮件主题</h3>
+<p>作为发送失败的信息</p>
+<pre><code>Returned mail: Data format error
+Returned mail: see transcript for details
+Delivery reports about your e-mail
+Mail System Error - Returned Mail
+Message could not be delivered
+delivery failed
+report
+test
+status
+error
+hi
+hello
+</code></pre>
+<p>指定附件类型</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1305.png" alt="36" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1322.png" alt="37" loading="lazy"></p>
+<p>实际上，这里就是分为了两部分，前部分伪造信息为<code>htm</code>,<code>html</code>,<code>txt</code>,<code>doc</code>，后部分为<code>com</code>,<code>pif</code>,<code>scr</code>,<code>exe</code>，实际上后部分才是附件真正的格式。例如<code>pwd.txt .exe</code></p>
+<p>或者直接为<code>.zip</code>文件</p>
+<h3 id="构建欺骗邮件信息-1">构建欺骗邮件信息</h3>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac134b.png" alt="38" loading="lazy"></p>
+<p>参考：<a href="https://famguardian.org/Subjects/Computers/Security/ImpersEmailAddr.htm" target="_blank">https://famguardian.org/Subjects/Computers/Security/ImpersEmailAddr.htm</a></p>
+<h3 id="提取附件邮箱信息">提取附件邮箱信息</h3>
+<p>递归遍历目录，获取指定后缀文件中的邮箱地址</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac136a.png" alt="39" loading="lazy"></p>
+<p>递归遍历目录C:\Local Settings\Temporary Internet Files\<em>.</em>，获取指定文件包含的邮箱信息</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1394.png" alt="40" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac13be.png" alt="41" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1409.png" alt="43" loading="lazy"></p>
+<p>查找指定后缀文件中的邮件信息，并且也对其中的信息进行了筛选</p>
+<pre><code>.pl*.ph*.tx*.tbb.ht*.asp.sht.dbx.adb.wab
+</code></pre>
+<p>递归遍历硬盘驱动器或闪存驱动器（字符从C增加），获取指定后缀文件中的邮箱地址</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1417.png" alt="45" loading="lazy"></p>
+<p>这里还有一些邮件的内容信息</p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1486.png" alt="52" loading="lazy"></p>
+<h1 id="servicesexe">services.exe</h1>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac142a.png" alt="46" loading="lazy"></p>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件名</td>
+<td>services.exe</td>
+</tr>
+<tr>
+<td>文件类型</td>
+<td>WIN 32 EXE</td>
+</tr>
+<tr>
+<td>文件大小</td>
+<td>8192 bytes</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>b0fe74719b1b647e2056641931907f4a</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>bf316f51d0c345d61eaee3940791b64e81f676e3bca42bad61073227bee6653c</td>
+</tr>
+<tr>
+<td>加壳</td>
+<td>UPX 2.90</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1437.png" alt="47" loading="lazy"></p>
+<p><img src="Mydoom/48.png" alt="48" loading="lazy"></p>
+<p>包含文件行为，注册表修改，网络行为</p>
+<h2 id="静态分析-1">静态分析</h2>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1455.png" alt="50" loading="lazy"></p>
+<p><img src="https://pic.imgdb.cn/item/6148b1ff2ab3f51d91ac1465.png" alt="51" loading="lazy"></p>
+<p>主要做了三件事</p>
+<ol>
+<li>对zincite.log文件操作</li>
+<li>修改注册表，设置services.exe为自启项</li>
+<li>绑定端口号1034，作为服务器开放监视端口（后门）</li>
+</ol>
+<p>java.exe和主程序相同的</p>
+<table>
+<thead>
+<tr>
+<th>信息</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文件名</td>
+<td>java.exe</td>
+</tr>
+<tr>
+<td>文件类型</td>
+<td>WIN32 EXE</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>90c2d4ca3613c5d17f1c938ce076fef2</td>
+</tr>
+<tr>
+<td>文件大小</td>
+<td>41664 bytes</td>
+</tr>
+</tbody>
+</table>
+<h1 id="ioc信息">IOC信息</h1>
+<pre><code>家族：Mydoom描述：MyDoom是一种通过电子邮件附件和P2P网络Kazaa传播的病毒,当用户打开并运行附件内的病毒程序后，病毒就会以用户信箱内的电子邮件地址为目标，伪造邮件的源地址，向外发送大量带有病毒附件的电子邮件，同时在用户主机上留下可以上载并执行任意代码的后门。MD5S:3d466b0f8ba9f3fe03e137a34d79f68290c2d4ca3613c5d17f1c938ce076fef2b0fe74719b1b647e2056641931907f4aIPS15.54.159.1494.240.75.254TTPSUPX加壳邮件发送失败返回注册表修改自启项递归遍历获取邮箱信息搜索引擎构建链接获取邮箱信息文件特征字符串java.exeservices.exezincite"Mail Delivery Subsystem","MAILER-DAEMON","Returned mail","Bounced mail","The Post Office","Post Office","Automatic Email Delivery Software","Mail Administrator","Postmaster","MAILER-DAEMON","noreply","postmaster"Returned mail: Data format errorReturned mail: see transcript for detailsDelivery reports about your e-mailMail System Error - Returned MailMessage could not be delivereddelivery failedreportteststatuserrorhihello
+</code></pre>
+
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-10-17 16:14</span>&nbsp;
+<a href="https://www.cnblogs.com/Mayfly-nymph/">Hk_Mayfly</a>&nbsp;
+阅读(<span id="post_view_count">0</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=15417180" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(15417180);return false;">收藏</a>&nbsp;
+<a href="javascript:void(0)" onclick="reportManager.report({ currentUserId: '', targetType: 'blogPost', targetId: '15417180', targetLink: 'https://www.cnblogs.com/Mayfly-nymph/p/15417180.html', title: 'Mydoom样本分析报告' })">举报</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js" async onload="markdown_highlight()"></script>
+<script>
+    var allowComments = true, cb_blogId = 404562, cb_blogApp = 'Mayfly-nymph', cb_blogUserGuid = 'df748fe7-f51d-45b5-9d87-08d49c352df3';
+    var cb_entryId = 15417180, cb_entryCreatedDate = '2021-10-17 16:14', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+             <a onclick="ga('send', 'event', 'banner', 'click', 'Pangle-C1')" target="_blank" rel="nofollow" href="https://c.gridsumdissector.com/r/?gid=gad_545_mzyfo0un&ck=46&adk=566&autorefresh=__AUTOREFRESH__">
+                <img style="width: 300px; height: 250px;" src="https://img2020.cnblogs.com/blog/35695/202110/35695-20211008160624813-1694591598.jpg" alt="" onload="impressC1()" />
+             </a>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Hk_Mayfly
+<br /><span id="poweredby">Powered by .NET 6 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278064374'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1278064374%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8FO3GXnjClZGrNGr2Ic8Z1oKzUgW922JN7RGEHwS4t3PnqmboxS4syrDbezJKY49Nfdte6FUCss6YPWkNZ__Bw0gYBKCWIg8UXLXqv7z9f_mqXLGbyCYGI-yP1aqThbOhtrRKCQGJxIOBeWSacep99c" />
+</body>
+</html>
