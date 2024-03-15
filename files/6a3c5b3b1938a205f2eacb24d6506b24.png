@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>AccessDenied</Code>
+  <Message>You are denied by bucket referer policy.</Message>
+  <RequestId>64163E90703D5E3936AD6D78</RequestId>
+  <HostId>img.tanknee.cn</HostId>
+  <BucketName>tankneeimg</BucketName>
+  <EC>0003-00000503</EC>
+</Error>
